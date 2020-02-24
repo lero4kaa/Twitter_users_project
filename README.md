@@ -21,10 +21,13 @@ flask run
 ```
 
 What you see, when you go to http://127.0.0.1:5000
-![](images/start.png)
+
+![](start.png)
 
 Then enter username
-![](images/start_with_name.png)
+
+![](start_with_name.png)
 
 Here is your map!
-![](images/map.png)
+
+![](map.png)
