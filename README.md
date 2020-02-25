@@ -3,7 +3,8 @@ With the help of these modules web-application can be generated. There you can i
 locations of all user`s friends are marked.
 
 # Usage
-After you download a repoository and install all libraries, that are needed (folium, flask, geocoder). Make next steps.
+After you download a repoository and install all libraries, that are needed (folium, flask, geocoder), input
+your API-key in module hidden.py. Then make next steps.
 ```python
 set FLASK_APP = app.py
 flask run
