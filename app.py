@@ -9,7 +9,10 @@ def index_page():
     if request.method == "GET":
         return render_template("start_page.html")
 
-    task3.main(request.form['contents'])
+    smth = task3.main(request.form['contents'])
+
+    if smth is None:
+        return render_template("wrong_acc.html")
     return redirect(url_for('maps'))
 
 
