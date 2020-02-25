@@ -6,7 +6,6 @@ import urllib.error
 import twurl
 import json
 import ssl
-import sys
 import geocoder
 import folium
 
@@ -56,7 +55,7 @@ def getting_json(acct, cursor, tweet_url, ctx):
         return js, headers['x-rate-limit-remaining']
     except urllib.error.HTTPError:
         print("This account does not exist. Try again")
-        sys.exit()
+        return None, None
 
 
 def main(acct):
@@ -77,6 +76,10 @@ def main(acct):
     loc_name_dict = dict()
     while cursor != 0 and remains != '0':
         js, remains = getting_json(acct, cursor, twitter_url, ctx)
+        if js is None:
+            print("returned None")
+            return None
+
         friends = js['users']
         for i in range(len(friends)):
             location = friends[i]['location']
@@ -104,7 +107,8 @@ def main(acct):
     m.add_child(fg_users)
 
     m.save('/home/valeriia13/mysite/templates/map_with_friends.html')
-    print("You can see map at map_with_friends.html")
+
+    return "You can see map at map_with_friends.html"
 
 
 if __name__ == "__main__":
